@@ -11,7 +11,9 @@ producer = KafkaProducer(
 )
 
 # Stocks to track
-stocks = ['AAPL', 'TSLA', 'MSFT', 'GOOGL']
+stocks = ['AAPL', 'TSLA', 'MSFT', 'GOOGL', 'AMZN', 'META', 'NVDA', 'JPM', 'V', 'DIS', 'RELIANCE.NS',
+    'TCS.NS', 'INFY.NS', 'HDFCBANK.NS', 'ICICIBANK.NS', 'KOTAKBANK.NS', 'LT.NS', 'SBIN.NS', 'AXISBANK.NS',
+    'BAJFINANCE.NS', 'HINDUNILVR.NS']
 
 print("Starting stock producer...")
 
@@ -41,4 +43,4 @@ while True:
         except Exception as e:
             print(f"Error for {stock}: {e}")
 
-    time.sleep(10)
+    time.sleep(3)
