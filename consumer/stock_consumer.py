@@ -16,4 +16,4 @@ print("Listening for stock market data...\n")
 for message in consumer:
     data = message.value
 
-   print(f"{data['symbol']} | Price: {data['price']} | Volume: {data['volume']}")
+    print(f"{data['symbol']} | Price: {data['price']} | Volume: {data['volume']}")
