@@ -25,15 +25,17 @@ services:
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT_INTERNAL
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
 
-  spark:
-    image: apache/spark:3.5.1
-    container_name: spark_container
-    user: root
+  postgres_db:
+    image: postgres:15-alpine
+    container_name: postgres_container
     environment:
-      - SPARK_MODE=master
-    volumes:
-      - C:\Users\OJAS\OneDrive\Desktop\stock-market-pipeline:/opt/spark/app
+      POSTGRES_USER: market_user
+      POSTGRES_PASSWORD: market_password
+      POSTGRES_DB: stock_analytics
     ports:
-      - "4040:4040"
-    depends_on:
-      - kafka
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
